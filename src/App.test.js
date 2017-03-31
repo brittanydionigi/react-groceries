@@ -12,7 +12,7 @@ describe('App', () => {
 
   it('displays an error if there was a problem fetching groceries', async () => {
     fetchMock.get('/api/v1/groceries', {
-      status: 500,
+      status: 500
     });
 
     const wrapper = mount(<App />);

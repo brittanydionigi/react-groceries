@@ -12,7 +12,7 @@ class App extends Component {
         { id: 1489863729151, name: 'Rutabagas', quantity: 10, purchased: false, starred: false },
         { id: 1489863740047, name: 'Beef Jerky', quantity: 1000, purchased: false, starred: false },
       ],
-      errorStatus: '',
+      errorStatus: ''
     };
 
     this.updateGroceryList = this.updateGroceryList.bind(this);
