@@ -9,3 +9,14 @@ test:
   override:
     - npm run lint
     - npm run test
+
+deployment:
+  staging:
+    branch: staging
+    heroku:
+      appname: grocery-list-staging
+
+  production:
+    branch: production
+    heroku:
+      appname: grocery-list-production
