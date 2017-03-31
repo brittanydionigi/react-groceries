@@ -14,9 +14,9 @@ deployment:
   staging:
     branch: staging
     heroku:
-      appName: grocery-list-staging
+      appname: grocery-list-staging
 
   production:
     branch: production
     heroku:
-      appName: grocery-list-production
+      appname: grocery-list-production
