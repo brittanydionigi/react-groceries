@@ -4,5 +4,21 @@
         "react",
         "jsx-a11y",
         "import"
-    ]
+    ],
+    "rules": {
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "react/prop-types": 0,
+      "brace-style": 0,
+      "arrow-body-style": 0,
+      "comma-dangle": 0
+    },
+    "globals": {
+      "expect": true,
+      "fetch": true,
+      "document": true,
+      "describe": true,
+      "afterEach": true,
+      "it": true,
+      "jest": true
+    }
 }

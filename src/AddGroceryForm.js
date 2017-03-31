@@ -8,18 +8,18 @@ class AddGroceryForm extends Component {
     this.state = {
       grocery: {
         name: '',
-        quantity: '' 
+        quantity: '',
       },
-      errorStatus: ''
+      errorStatus: '',
     };
   }
 
   updateProperty(event) {
     const { name, value } = event.target;
-    this.setState({ 
+    this.setState({
       grocery: Object.assign(this.state.grocery, {
-        [name]: value
-      })
+        [name]: value,
+      }),
     });
   }
 
@@ -32,22 +32,22 @@ class AddGroceryForm extends Component {
       method: 'POST',
       body: JSON.stringify({ grocery }),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     })
     .then(response => response.json())
-    .then(groceries => {
+    .then((groceries) => {
       this.setState({
         grocery: {
           name: '',
-          quantity: '' 
-        }
+          quantity: '',
+        },
       }, updateGroceryList(groceries));
     })
-    .catch(error => {
+    .catch(() => {
       this.setState({
-        errorStatus: 'Error adding grocery'
-      })
+        errorStatus: 'Error adding grocery',
+      });
     });
   }
 
@@ -57,7 +57,7 @@ class AddGroceryForm extends Component {
         className="AddGroceryForm"
         onSubmit={event => this.addGrocery(event)}
       >
-        <label>
+        <label htmlFor="name">
           Name
           <input
             type="text"
@@ -67,7 +67,7 @@ class AddGroceryForm extends Component {
             onChange={event => this.updateProperty(event)}
           />
         </label>
-        <label>
+        <label htmlFor="quantity">
           Quantity
           <input
             type="text"

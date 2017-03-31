@@ -5,7 +5,6 @@ import fetchMock from 'fetch-mock';
 import AddGroceryForm from './AddGroceryForm';
 
 describe('AddGroceryForm', () => {
-
   const mockGroceries = [
     { id: 1489863729151, name: 'Pineapples', quantity: 10, purchased: false, starred: false },
     { id: 1489863740047, name: 'Coconuts', quantity: 1000, purchased: false, starred: false },
@@ -18,11 +17,11 @@ describe('AddGroceryForm', () => {
   });
 
   it('submits the correct data when adding a new grocery', () => {
-    fetchMock.post('/api/v1/groceries', { 
+    fetchMock.post('/api/v1/groceries', {
       status: 200,
-      body: mockGroceries
+      body: mockGroceries,
     });
-    
+
     const wrapper = mount(<AddGroceryForm updateGroceryList={jest.fn()} />);
 
     const nameInput = wrapper.find('input[name="name"]');
@@ -30,11 +29,11 @@ describe('AddGroceryForm', () => {
     const formElem = wrapper.find('form');
 
     nameInput.simulate('change', {
-      target: { name: 'name', value: 'Foo' }
+      target: { name: 'name', value: 'Foo' },
     });
 
     qtyInput.simulate('change', {
-      target: { name: 'quantity', value: '1000' }
+      target: { name: 'quantity', value: '1000' },
     });
 
     formElem.simulate('submit');
@@ -44,8 +43,7 @@ describe('AddGroceryForm', () => {
     expect(fetchMock.lastOptions()).toEqual({
       method: 'POST',
       body: '{"grocery":{"name":"Foo","quantity":"1000"}}',
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
     });
   });
-
 });
