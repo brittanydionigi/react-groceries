@@ -4,3 +4,8 @@ machine:
 
   timezone:
     America/New_York
+
+test:
+  override:
+    - npm run lint
+    - npm run test
