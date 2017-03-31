@@ -21,4 +21,8 @@ describe('App', () => {
     expect(wrapper.state('errorStatus')).toEqual('Error fetching groceries');
     expect(wrapper.find('.error').length).toEqual(1);
   });
+
+  it('should equal four when you add 2 + 2', () => {
+    expect(2+2).toEqual(5);
+  });
 });
